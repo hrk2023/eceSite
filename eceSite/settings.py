@@ -121,4 +121,4 @@ STATIC_URL = '/static/'
 
 
 #Activate heroku settings 
-django_heroku.settings(locals())
+django_heroku.settings(locals())    #COMMENT THIS IN DEVELOPMENT
