@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ece 19-23</title>
+        <!--TAILWIND CSS-->
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+    <!-- <iframe width="640" height="360" frameborder="0" src="" allowfullscreen ></iframe> -->
+
+    <body class="bg-gray-900">
+        <!--HEADER-->
+        <header class="text-gray-500 bg-gray-900 body-font">
+            <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-around">
+                <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span class="ml-3 text-xl">ECE 19-23</span>
+                </a>
+                <a href="{% url 'index' %}">
+                    <button class="inline-flex items-center bg-indigo-600 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base text-white mt-4 md:mt-0">Home
+                    </button>
+                </a>
+            </div>
+        </header>
+        <!--HEADER END-->
+        <section class="text-gray-500 bg-gray-900 body-font overflow-hidden">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="-my-8">
+                    {% for video in videos %}
+                        {% if video.sampleId != 100 %}
+                        <div class="py-8 flex flex-wrap md:flex-no-wrap border-b-2 border-gray-800">
+                            <div class="md:w-200 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                                <span class="tracking-widest font-medium title-font text-white">
+                                    <iframe width="300" height="180" frameborder="0" src={{video.videoLink}} allowfullscreen ></iframe>
+                                </span>
+                                <span class="mt-1 text-gray-600 text-sm">{{video.dateTime}}</span>
+                            </div>
+                            <div class="md:flex-grow md:px-20 px-0">
+                                <h2 class="text-2xl font-medium text-white title-font mb-2">{{video.videoTitle}}</h2>
+                                <p class="leading-relaxed">{{video.videoDescription}}</p>
+                            </div>
+                        </div>
+                        {% else %}
+                            <div class="md:w-200 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                                <h3 class="text-2xl font-medium text-center text-gray title-font mb-2">
+                                    No content yet
+                                </h3>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
