@@ -9,7 +9,8 @@
     <!--CUSTOM CSS-->
     <link rel="stylesheet" type="text/css" href="../static/css/layout.css">
 </head>
-<body class="bg-gray-900">
+<body class="bg-gray-900 main">
+  <div class="preloader"></div>
   <section class="text-gray-500 body-font bg-gray-900">
     <div class="container pt-24 pb-20 px-5 mx-auto">
       <div class="flex flex-col text-center w-full mb-20">
@@ -54,6 +55,18 @@
       </p>
     </div>
   </footer>
+  <!--PRELOADER JS SCRIPT-->
+  <script>
+    document.body.style.position = "fixed";
+    window.addEventListener('load', () => {
+      let preloader=document.querySelector('.preloader');
+      setTimeout( () => {
+        preloader.classList.toggle('preloader-finish');
+        document.body.style.position = "static";
+      },3000);
+    });
+  </script>
+  <!--PRELOADER JS SCRIPT END-->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
