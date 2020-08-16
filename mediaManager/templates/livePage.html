@@ -15,7 +15,6 @@
     <!-- <iframe width="640" height="360" frameborder="0" src="" allowfullscreen ></iframe> -->
 
     <body class="bg-gray-900">
-        <div class="preloader"></div>
         <!--HEADER-->
         <header class="text-gray-500 bg-gray-900 body-font sticky top-0 z-50" data-aos="zoom-in">
             <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
@@ -59,18 +58,6 @@
                 </div>
             </div>
         </section>
-        <!--PRELOADER JS SCRIPT-->
-        <script>
-            document.body.style.position = "fixed"
-            window.addEventListener('load', () => {
-                let preloader=document.querySelector('.preloader');
-                setTimeout( () => {
-                    preloader.classList.toggle('preloader-finish');
-                    document.body.style.position = "static";
-                },3000);
-            });
-        </script>
-        <!--PRELOADER JS SCRIPT END-->
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
