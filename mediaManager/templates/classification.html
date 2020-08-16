@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load markdown %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ece 19-23</title>
+        <!--TAILWIND CSS-->
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <!--CUSTOM STYLESHEET-->
+        <link rel="stylesheet" type="text/css" href="../static/css/layout.css">
+        <style>
+            h1 {
+                font-size:1.8em;
+                font-weight:600;
+            }
+            h2 {
+                font-size:1.3em;
+                font-weight:600;
+            }
+            h3 {
+                font-size:1em;
+                font-weight:600;
+            }
+            h4{
+                font-size:0.8em;
+                font-weight:600;
+            }
+            li{
+                list-style-type: disc;
+                margin-left:30px;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-900">
+        <!--HEADER-->
+        <header class="text-gray-500 bg-gray-900 body-font" data-aos="zoom-in">
+            <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
+                <a class="flex title-font font-medium items-center text-white mb-0">
+                    <img src="../static/assets/logo.jpg" class="w-10 h-10 p-2 rounded-full">
+                    <span class="ml-0 md:ml-3 text-xl">ECE 19-23</span>
+                </a>
+                <a href="{% url 'index' %}">
+                    <button class="inline-flex items-center border-2 border-indigo-500  py-1 px-3 focus:outline-none hover:bg-gray-800 rounded text-base text-indigo-500 mt-0 md:mt-0">HOME
+                    </button>
+                </a>
+            </div>
+        </header>
+        <!--HEADER END-->
+        <section class="text-gray-500 bg-gray-900 body-font">
+            <div class="wrapper px-5 py-24 pt-8 mx-auto flex flex-wrap" style="width:95%;">
+              <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg bg-gray-800 text-gray-500 overflow-y-scroll px-10 py-10" style="height:720px;">
+                {% if courseDetails %}
+                    {{courseDetails.subjectDetails|markdown_to_html | safe}}
+                {% endif %}
+              </div>
+              <div class="flex flex-col flex-wrap lg:pb-6 -mb-10 lg:w-1/2 lg:text-left text-center">
+                  <div class="md:w-full w-full px-8 py-8 md:mb-10 md:mx-10 my-5 border-l-2  border-indigo-700" data-aos="fade-up" style="box-shadow: 13px 13px 12px #161c27, 
+                  -13px -13px 12px #1e2633;border-radius: 10px;">
+                    <h1 class="text-white text-2xl title-font font-medium mb-3">Videos</h1>
+                    <h2 class="text-white text-lg title-font font-medium mb-3">{{courseDetails.subjectName}}</h2>
+                    <p class="leading-relaxed text-base mb-4">
+                        Contains all the pre recorded videos provided by the course instructor
+                    </p>
+                    <a class="mt-3 text-indigo-500 inline-flex items-center" href="{% url 'videopage' course=courseDetails.subjectCode %}">Learn More
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="md:w-full w-full px-8 py-8 md:mb-10 md:mx-10 my-5 border-l-2  border-green-700" data-aos="fade-up" style="box-shadow: 13px 13px 12px #161c27, 
+                  -13px -13px 12px #1e2633;border-radius: 10px;">
+                    <h1 class="text-white text-2xl title-font font-medium mb-3">Documents</h1>
+                    <h2 class="text-white text-lg title-font font-medium mb-3">{{courseDetails.subjectName}}</h2>
+                    <p class="leading-relaxed text-base mb-4">
+                        Contains all the Pdfs, assignments and related documents.
+                    </p>
+                    <a class="mt-3 text-indigo-500 inline-flex items-center" href="{% url 'pdfpage' course=courseDetails.subjectCode %}">Learn More
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="md:w-full w-full px-8 py-8 md:mb-10 md:mx-10 my-5 border-l-2  border-red-700" data-aos="fade-up" style="box-shadow: 13px 13px 12px #161c27, 
+                  -13px -13px 12px #1e2633;border-radius: 10px;">
+                    <h1 class="text-white text-2xl title-font font-medium mb-3">Live Class Recording</h1>
+                    <h2 class="text-white text-lg title-font font-medium mb-3">{{courseDetails.subjectName}}</h2>
+                    <p class="leading-relaxed text-base mb-4">
+                        Contains all the recordings from all the conducted live classes.
+                    </p>
+                    <a class="mt-3 text-indigo-500 inline-flex items-center" href="{% url 'livevidpage' course=courseDetails.subjectCode %}">Learn More
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+    </body>
+</html>

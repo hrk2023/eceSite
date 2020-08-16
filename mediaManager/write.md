@@ -1,0 +1,8 @@
+## COURSE NAME : ENVIRONMENTAL SCIENCE
+## COURSE CODE : ES201
+## COURSE INSTRUCTOR :  ----
+<br/>
+
+### L-T-P-Cr-CH: 1-0-1-0-3
+
+<br/><br/>
