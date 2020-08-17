@@ -16,7 +16,7 @@
 
     <body class="bg-gray-900">
         <!--HEADER-->
-        <header class="text-gray-500 bg-gray-900 body-font sticky top-0 z-50" data-aos="zoom-in">
+        <header class="text-gray-500 bg-gray-900 body-font sticky top-0 z-50">
             <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
                 <a class="flex title-font font-medium items-center text-white mb-0">
                     <img src="../static/assets/logo.jpg" class="w-10 h-10 p-2 rounded-full">
@@ -29,12 +29,27 @@
             </div>
         </header>
         <!--HEADER END-->
+
+        <!-- SEARCH BAR START -->
+        <div class="p-8 px-20">
+            <div class="bg-white flex items-center rounded-full shadow-xl">
+              <input onkeyup="searchFun()" class="rounded-l-full w-full py-4 px-6 text-black-900 leading-tight focus:outline-none" id="myInput" type="text" placeholder="Search"> 
+              <div class="p-4"></div>
+            </div>
+        </div>
+        <div id="results" class="md:w-200 m-5 p-5 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+            <h3 class=" m-5 p-5 text-2xl font-medium text-center text-white title-font mb-2">
+                No search results found
+            </h3>
+        </div>
+        <!-- SEARCH BAR END -->
+
         <section class="text-gray-500 bg-gray-900 body-font overflow-hidden">
             <div class="container px-5 py-24 mx-auto">
                 <div class="-my-8">
                     {% for video in videos %}
                         {% if video.sampleId != 100 %}
-                        <div class="py-8 flex flex-wrap md:flex-no-wrap border-b-2 border-gray-800 justify-center flex-row" data-aos="fade-up">
+                        <div class="display py-8 flex flex-wrap md:flex-no-wrap border-b-2 border-gray-800 justify-center flex-row">
                             <div class="md:w-200 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
                                 <span class="tracking-widest font-medium title-font text-white">
                                     <iframe width="300" height="180" frameborder="0" src={{video.liveLink}} allowfullscreen ></iframe>
@@ -58,13 +73,44 @@
                 </div>
             </div>
         </section>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
             AOS.init({
                 duration: 1200,
                 once: true
             })
+        </script> -->
+        <!-- SEARCH BAR JS SCRIPT START -->
+        <script>
+            let results = document.getElementById("results");
+            results.style.display = 'none';
+            const searchFun = () => {
+            let filter = document.getElementById('myInput').value.toUpperCase();
+            let display = document.getElementsByClassName("display");
+            let x = 0;
+            for(let i=0; i< display.length; i++) {
+                let value = display[i].innerText;
+                if(value) {
+                    if(value.toUpperCase().indexOf(filter) > -1) {
+                        display[i].style.display = "";
+                        x = 1;
+                    }
+                    else {
+                        display[i].style.display = "none";     
+                    }
+                } else {
+                    results.style.display = 'none';
+                } 
+                 
+            }
+            if(x!==1){
+                results.style.display = '';
+            } else {
+                results.style.display = 'none';
+            }
+        };      
         </script>
+        <!-- SEARCH BAR JS SCRIPT END -->
     </body>
 </html>
