@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .container{
+            padding-top:50px;
+        }
+        .btn:link{
+            color: white;
+            background-color: #004c5f;
+            font-size: 18px;
+            font-family:'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: lighter;
+            margin:auto;
+        }
+        .btn:visited{
+            color:white;
+        }
+        .btn:hover{
+            color:white;
+        }
+        .backBtn{
+            width:95%;
+            margin:auto;
+            display: flex;
+            justify-content: center;
+            margin-top: 10vh;
+        }
+        .glyphicon{
+            color:white;
+            padding-right: 4px;
+            font-weight: 100;
+        }
+        h1{
+            font-size: 60px;
+            font-weight:bolder;
+        }
+        @media all and (max-width:768px){
+            .backBtn{
+                margin-top: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container justify-center">
+        <div class="text-center">
+            <h1>404</h1>
+            <h2>PAGE NOT FOUND</h2>
+        </div>
+    </div>
+    <div class="backBtn">
+        <a class="btn" href="{% url 'index' %}"><span class="glyphicon glyphicon-arrow-left"></span>Home Page</a>
+    </div>
+</body>
+</html>

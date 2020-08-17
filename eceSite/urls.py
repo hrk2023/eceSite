@@ -20,3 +20,6 @@ urlpatterns = [
     path('',include('mediaManager.urls')),
     path('admin/', admin.site.urls)
 ]
+
+handler404 = 'mediaManager.views.error_404'
+handler500 = 'mediaManager.views.error_500'
