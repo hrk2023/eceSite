@@ -25,7 +25,6 @@ def pdfpage(request,course):
 def livevidpage(request,course):
     course = course + 'L'
     courseCol = db[course]
-    print(courseCol)
     response = courseCol.find()
     return render(request, 'livePage.html', {'videos' : response})
 
