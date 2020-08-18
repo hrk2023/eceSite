@@ -31,7 +31,8 @@
         <!--HEADER END-->
 
         <!-- SEARCH BAR START -->
-        <div class="p-8 px-10">
+        
+        <div id="checkContent" class="p-8 px-10">
             <div class="bg-gray-800 flex items-center rounded-full shadow-xl">
               <input onkeyup="searchFun()" class="rounded-full w-full py-4 px-6 text-white leading-tight focus:outline-none bg-gray-800" id="myInput" type="text" placeholder="Search"> 
               <div class="p-4"></div>
@@ -42,6 +43,7 @@
                 No search results found
             </h3>
         </div>
+        
         <!-- SEARCH BAR END -->
 
         <section class="text-gray-500 bg-gray-900 body-font overflow-hidden">
@@ -83,6 +85,12 @@
         </script> -->
         <!-- SEARCH BAR JS SCRIPT START -->
         <script>
+            let checkContent = document.getElementById("checkContent");
+            let checkDisplay = document.getElementsByClassName("display");
+            let val = checkDisplay[0];
+            if(val === undefined) {
+                checkContent.style.display = 'none';
+            }
             let results = document.getElementById("results");
             results.style.display = 'none';
             const searchFun = () => {
