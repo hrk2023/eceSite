@@ -21,3 +21,14 @@ body{
     opacity: 0%;
     z-index:-1;
 }
+.formNoDisplay{
+    display: none;
+}
+.formDisplay{
+    display: block;
+    padding:50px 5px 50px 5px;
+}
+.form-group{
+    width:50%;
+    margin:10px auto;
+}

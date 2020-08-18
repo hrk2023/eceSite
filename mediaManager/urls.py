@@ -6,6 +6,7 @@ urlpatterns = [
     path('subject/',views.subjectAdd, name="subject"),
     path('dberror/',views.dberror, name="dberror"),
     path('deletesub/<id>/',views.subjectDelete, name="delete"),
+    path('updatesub/<id>/',views.subjectUpdate, name="update"),
     path('videoadd/', views.videoadd, name="videoadd"),
     path('pdfadd/', views.pdfadd, name="pdfadd"),
     path('liveadd/', views.livevidadd, name="liveadd"),

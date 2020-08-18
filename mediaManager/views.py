@@ -25,7 +25,6 @@ def pdfpage(request,course):
 def livevidpage(request,course):
     course = course + 'L'
     courseCol = db[course]
-    print(courseCol)
     response = courseCol.find()
     return render(request, 'livePage.html', {'videos' : response})
 
@@ -93,6 +92,38 @@ def subjectAdd(request):
     response = db.subjects.find()
     return render(request, 'subject.html' , {'form': form,'subjects':response})
 # ADD A NEW SUBJECT END
+
+
+# UPDATE A SUBJECT
+def subjectUpdate(request,id):
+    if request.method == 'POST':
+        subjectName = request.POST.get('subjectName')
+        subjectCode = request.POST.get('subjectCode')
+        subjectDescription = request.POST.get('subjectDescription')
+        handleFiles(request.FILES["files"])
+        insert_status = ''
+        with open('mediaManager/write.md', 'r') as fptr:
+            lines = fptr.read()
+            status = db.subjects.update_one(
+                {
+                    "subjectId":id
+                },
+                {
+                    '$set':{
+                        "subjectName":subjectName,
+                        "subjectCode":subjectCode,
+                        "subjectDescription":subjectDescription,
+                        "subjectDetails":lines
+                    }
+                }
+            )
+            insert_status = status
+        if insert_status:
+            return HttpResponseRedirect('/subject/')
+        return render(request,'<h1>Error</h1>')
+
+# UPDATE A SUBJECT END
+
 
 # DELETE A SUBJECT
 def subjectDelete(request,id):
@@ -186,3 +217,9 @@ def livevidadd(request):
 
 def dberror(request):
     return render(request,'databaseError.html')
+
+def error_404(request,exception):
+    return render(request,'404.html')
+
+def error_500(request):
+    return render(request,'500.html')
