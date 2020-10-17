@@ -9,8 +9,8 @@ from .handleFile import handleFiles
 # Create your views here.
 def index(request):
     response = db.subjects.find()
-    return render(request, 'layout.html', {'subjects' : response})
-
+    return render(request, 'access.html')
+'''
 def videopage(request,course):
     courseCol = db[course]
     response = courseCol.find()
