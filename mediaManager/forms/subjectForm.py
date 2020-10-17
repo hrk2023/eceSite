@@ -21,6 +21,11 @@ class SubjectForm(forms.Form):
             'rows': 5
         }
     ),max_length=500)
+    files = forms.FileField(label="", widget=forms.FileInput(
+        attrs = {
+            'class': "text-base px-4 py-2"
+        }
+    ),required = True)
 
     #CUSTOM VALIDATOR
     # def validate_collection(subjectCode):

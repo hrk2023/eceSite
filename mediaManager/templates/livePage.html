@@ -24,7 +24,6 @@
     <!-- <iframe width="640" height="360" frameborder="0" src="" allowfullscreen ></iframe> -->
 
     <body class="bg-gray-900">
-        <div class="preloader"></div>
         <!--HEADER-->
         <header class="text-gray-500 bg-gray-900 body-font sticky top-0 z-50">
             <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
@@ -41,7 +40,8 @@
         <!--HEADER END-->
 
         <!-- SEARCH BAR START -->
-        <div id="checkContent" class="py-8 px-10">
+        
+        <div id="checkContent" class="p-8 px-10">
             <div class="bg-gray-800 flex items-center rounded-full shadow-xl">
               <input onkeyup="searchFun()" class="rounded-full w-full py-4 px-6 text-white leading-tight focus:outline-none bg-gray-800" id="myInput" type="text" placeholder="Search"> 
               <div class="p-4"></div>
@@ -49,9 +49,10 @@
         </div>
         <div id="results" class="md:w-200 m-5 p-5 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
             <h3 class=" m-5 p-5 text-2xl font-medium text-center text-white title-font mb-2">
-                No search results found 
+                No search results found
             </h3>
         </div>
+        
         <!-- SEARCH BAR END -->
 
         <section class="text-gray-500 bg-gray-900 body-font overflow-hidden">
@@ -59,16 +60,16 @@
                 <div class="-my-8">
                     {% for video in videos %}
                         {% if video.sampleId != 100 %}
-                        <div class=" display py-8 flex flex-wrap md:flex-no-wrap border-b-2 border-gray-800 justify-center flex-row">
+                        <div class="display py-8 flex flex-wrap md:flex-no-wrap border-b-2 border-gray-800 justify-center flex-row">
                             <div class="md:w-200 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
                                 <span class="tracking-widest font-medium title-font text-white">
-                                    <iframe width="300" height="180" frameborder="0" src={{video.videoLink}} allowfullscreen ></iframe>
+                                    <iframe width="300" height="180" frameborder="0" src={{video.liveLink}} allowfullscreen ></iframe>
                                 </span>
                                 <span class="mt-1 text-gray-600 text-sm">{{video.dateTime}}</span>
                             </div>
                             <div class="md:flex-grow md:px-20 px-5">
-                                <h2 class="text-2xl font-medium text-white title-font mb-2">{{video.videoTitle}}</h2>
-                                <p class="leading-relaxed myTable">{{video.videoDescription}}</p>
+                                <h2 class="text-2xl font-medium text-white title-font mb-2">{{video.liveTitle}}</h2>
+                                <p class="leading-relaxed">{{video.liveDescription}}</p>
                             </div>
                         </div>
                         {% else %}
@@ -83,28 +84,13 @@
                 </div>
             </div>
         </section>
-        
-        <!--PRELOADER JS SCRIPT-->
+        <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
-            document.body.style.position = "fixed"
-            window.addEventListener('load', () => {
-                let preloader=document.querySelector('.preloader');
-                setTimeout( () => {
-                    preloader.classList.toggle('preloader-finish');
-                    document.body.style.position = "static";
-                },3000);
-            });
-        </script>
-        <!-- PRELOADER JS SCRIPT END -->
-        <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
-        <!-- <script>
             AOS.init();
             AOS.init({
                 duration: 1200,
                 once: true
-            });
-            
-        
+            })
         </script> -->
         <!-- SEARCH BAR JS SCRIPT START -->
         <script>

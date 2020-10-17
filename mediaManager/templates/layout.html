@@ -13,6 +13,15 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--TAILWIND CSS-->
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176299747-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-176299747-1');
+    </script>
     <!--CUSTOM CSS-->
     <link rel="stylesheet" type="text/css" href="../static/css/layout.css">
 </head>
@@ -31,9 +40,9 @@
           <div class="xl:w-1/4 lg:w-1/3 md:w-full w-full px-8 py-8 md:my-10 md:mx-10 my-5 border-l-2 md:border-l-0 md:border-b-2 border-indigo-700" data-aos="fade-up" style="box-shadow: 13px 13px 12px #161c27, 
           -13px -13px 12px #1e2633;border-radius: 10px;">
             <h2 class="text-lg sm:text-xl text-white font-medium title-font mb-2">{{subject.subjectCode}}</h2>
-            <h2 class="text-lg sm:text-xl text-white font-medium title-font mb-2">{{subject.subjectName}}</h2>
+            <h2 class="text-lg sm:text-xl text-white font-medium title-font mb-2" style="font-size:18px;">{{subject.subjectName}}</h2>
             <p class="leading-relaxed text-base mb-4">{{subject.subjectDescription}}</p>
-            <a class="text-indigo-500 inline-flex items-center" href="{% url 'videopage' course=subject.subjectCode %}">Learn More
+            <a class="text-indigo-500 inline-flex items-center" href="{% url 'classification' course=subject.subjectCode %}">Learn More
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>

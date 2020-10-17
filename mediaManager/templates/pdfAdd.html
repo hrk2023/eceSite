@@ -32,7 +32,7 @@
         <section class="text-gray-500 bg-gray-900 body-font relative">
             <div class="container px-5 py-24 mx-auto">
               <div class="flex flex-col text-center w-full mb-12">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">ADD A VIDEO</h1>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">ADD A DOCUMENT</h1>
                 <!-- <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p> -->
               </div>
               <div class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -47,7 +47,7 @@
                     <form method="POST" class="flex flex-wrap -m-2">
                         {% csrf_token %}
                         <div class="p-2 w-1/2">
-                            <input class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="Video Title" type="text" name="videoTitle">
+                            <input class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="Document Title" type="text" name="pdfTitle">
                         </div>
                         <div class="p-2 w-1/2">
                             <select name="course" id="course" class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:border-indigo-500 text-base px-4 py-2">
@@ -60,10 +60,10 @@
                             </select> 
                         </div>
                         <div class="p-2 w-full">
-                            <input class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="Video Link" type="text" name="videoLink">
+                            <input class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none focus:border-indigo-500 text-base px-4 py-2" placeholder="Document Link" type="text" name="pdfLink">
                         </div>
                         <div class="p-2 w-full">
-                            <textarea class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none h-48 focus:border-indigo-500 text-base px-4 py-2 resize-none block" placeholder="Video Description" name="videoDescription"></textarea>
+                            <textarea class="w-full bg-gray-800 rounded border border-gray-700 text-white focus:outline-none h-48 focus:border-indigo-500 text-base px-4 py-2 resize-none block" placeholder="Document Description" name="pdfDescription"></textarea>
                         </div>
                         <div class="p-2 w-full">
                             <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit">Submit</button>
